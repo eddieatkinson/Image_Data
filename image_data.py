@@ -1,9 +1,12 @@
 import os, string
 
-school = raw_input("School Name? ")
+school = raw_input("School abbreviation? ")
+season = raw_input('Season (e.g., "2017 Fall")? ')
 date = raw_input("Shoot date? ")
-file_to_test = raw_input("What is the path for the files you would like to name? ")
-file_to_write = raw_input("To which file would you like to write? ")
+
+file_to_write = "~/Desktop/%s/DataFolder/%s.csv" % (season, school)
+# file_to_test = raw_input("What is the path for the files you would like to name? ")
+# file_to_write = raw_input("To which file would you like to write? ")
 
 list_from_file = os.listdir(file_to_test)
 file_names = [] # names of the jpgs

@@ -1,13 +1,14 @@
 import os, string
 
-school = raw_input("School Name? ")
+school = raw_input("School abbreviation? ")
+season = str(raw_input('Season (e.g., "2017 Fall")? '))
 date = raw_input("Shoot date? ")
-file_to_test = raw_input("What is the path for the files you would like to name? ")
-file_to_write = raw_input("To which file would you like to write? ")
+
+file_to_write = "/Users/eddieatkinson/Desktop/%s.csv" % school
 
 group = 1
 groups = [] # numbers to group images
-list_from_file = os.listdir(file_to_test)
+list_from_file = os.listdir("/Users/eddieatkinson/Desktop/%s/%s/%s Exports" % (season, school, school))
 file_names = [] # names of the jpgs
 new_file_names = [] # the final list
 just_first_names = []
@@ -30,21 +31,27 @@ for k in range (0, len(just_first_names)):
 	else:
 		groups.append(group)
 for i in set(new_file_names):
-	if 13 > new_file_names.count(i) >= 7: # if there are more than 6, for multiple proofs
-		i += "_2" # add a _2 to the name, so it won't get erased
+	if 25 > new_file_names.count(i) >= 19: # if there are more than 6, for multiple proofs
+		i += "_II" # add a _II to the name, so it won't get erased
 		new_file_names.append(i)
-	elif 19 > new_file_names.count(i) >= 13:
-		i += "_3" # add a _3 to the name, so it won't get erased
+		i += "I" 
 		new_file_names.append(i)
-	elif new_file_names.count(i) >= 19:
-		i += "_4" # add a _3 to the name, so it won't get erased
+		i += "I" 
+		new_file_names.append(i)
+	if 19 > new_file_names.count(i) >= 13:
+		i += "_II" 
+		new_file_names.append(i)
+		i += "I" 
+		new_file_names.append(i)
+	if new_file_names.count(i) >= 7:
+		i += "_II"
 		new_file_names.append(i)
 new_list = list(set(new_file_names)) # change it back to a list
 new_list_sorted = sorted(new_list) # put it in alphabetical order
 the_file = open(file_to_write, "w")
 for item in new_list_sorted:
 	the_file.write("%s\n" % item)
-image_data_file = open("%s.txt" % school, "w")
+image_data_file = open("/Users/eddieatkinson/Desktop/%s.txt" % school, "w")
 image_data_file.write("Filename,FirstName,LastName,FullName,GroupTest,Class,Packages,ShootDate,SchoolName\n")
 for i in range (0, len(file_names)):
 	image_data_file.write("%s,%s,,%s ,%d,,,%s,%s\n" % (file_names[i], just_first_names[i], just_first_names[i], groups[i], date, school))
