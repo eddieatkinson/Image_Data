@@ -4,7 +4,7 @@ school = raw_input("School abbreviation? ")
 season = str(raw_input('Season (e.g., "2017 Fall")? '))
 date = raw_input("Shoot date? ")
 
-file_to_write = "/Users/eddieatkinson/Desktop/%s.csv" % school
+file_to_write = "/Users/eddieatkinson/Desktop/%s/%s.csv" % (season, school)
 
 group = 1
 groups = [] # numbers to group images
@@ -51,7 +51,7 @@ new_list_sorted = sorted(new_list) # put it in alphabetical order
 the_file = open(file_to_write, "w")
 for item in new_list_sorted:
 	the_file.write("%s\n" % item)
-image_data_file = open("/Users/eddieatkinson/Desktop/%s.txt" % school, "w")
+image_data_file = open("/Users/eddieatkinson/Desktop/%s/%s.txt" % (season, school), "w")
 image_data_file.write("Filename,FirstName,LastName,FullName,GroupTest,Class,Packages,ShootDate,SchoolName\n")
 for i in range (0, len(file_names)):
 	image_data_file.write("%s,%s,,%s ,%d,,,%s,%s\n" % (file_names[i], just_first_names[i], just_first_names[i], groups[i], date, school))
