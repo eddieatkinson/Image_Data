@@ -3,6 +3,7 @@ import os, string
 school = raw_input("School abbreviation? ")
 season = str(raw_input('Season (e.g., "2017 Fall")? '))
 date = raw_input("Shoot date? ")
+num_img = int(raw_input("How many images of each child?"))
 
 file_to_write = "/Users/eddieatkinson/Desktop/%s/%s.csv" % (season, school)
 
@@ -31,19 +32,19 @@ for k in range (0, len(just_first_names)):
 	else:
 		groups.append(group)
 for i in set(new_file_names):
-	if 25 > new_file_names.count(i) >= 19: # if there are more than 6, for multiple proofs
+	if (4 * num_img + 1) > new_file_names.count(i) >= (3 * num_img + 1): # if there are more than 6, for multiple proofs
 		i += "_II" # add a _II to the name, so it won't get erased
 		new_file_names.append(i)
 		i += "I" 
 		new_file_names.append(i)
 		i += "I" 
 		new_file_names.append(i)
-	if 19 > new_file_names.count(i) >= 13:
+	if (3 * num_img + 1) > new_file_names.count(i) >= (2 * num_img + 1):
 		i += "_II" 
 		new_file_names.append(i)
 		i += "I" 
 		new_file_names.append(i)
-	if new_file_names.count(i) >= 7:
+	if new_file_names.count(i) >= (num_img + 1):
 		i += "_II"
 		new_file_names.append(i)
 new_list = list(set(new_file_names)) # change it back to a list
