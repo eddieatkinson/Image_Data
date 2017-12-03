@@ -5,10 +5,11 @@ season = str(raw_input('Season (e.g., "2017 Fall")? '))
 date = raw_input("Shoot date? ")
 num_img = int(raw_input("How many images of each child?"))
 
-file_to_write = "/Users/eddieatkinson/Desktop/%s/%s.csv" % (season, school)
+file_to_write = "/Users/eddieatkinson/Desktop/%s.csv" % (season, school)
 
 group = 1
 groups = [] # numbers to group images
+# list_from_file = os.listdir("/Users/eddieatkinson/Desktop/%s/%s/%s Exports" % (season, school, school))
 list_from_file = os.listdir("/Users/eddieatkinson/Desktop/%s/%s/%s Exports" % (season, school, school))
 file_names = [] # names of the jpgs
 new_file_names = [] # the final list

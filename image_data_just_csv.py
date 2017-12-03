@@ -29,7 +29,7 @@ new_list_sorted = sorted(new_list) # put it in alphabetical order
 the_file = open(file_to_write, "w")
 for item in new_list_sorted:
 	the_file.write("%s\n" % item)
-image_data_file = open("%s.txt" % school, "w")
-image_data_file.write("Filename,FirstName,LastName,FullName,GroupTest,Class,Packages,ShootDate,SchoolName")
-for i in range (0, len(file_names)):
-	image_data_file.write("%s,%s,,%s ,%d,,,%s,%s\n" % (file_names[i], new_file_names[i], new_file_names[i], i + 1, date, school))
+# image_data_file = open("%s.txt" % school, "w")
+# image_data_file.write("Filename,FirstName,LastName,FullName,GroupTest,Class,Packages,ShootDate,SchoolName")
+# for i in range (0, len(file_names)):
+# 	image_data_file.write("%s,%s,,%s ,%d,,,%s,%s\n" % (file_names[i], new_file_names[i], new_file_names[i], i + 1, date, school))
