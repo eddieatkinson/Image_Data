@@ -16,6 +16,7 @@ just_first_names = []
 for item in list_from_file:
 	if ".jpg" or ".JPG" in item: # make sure we only have jpgs
 		file_names.append(item)
+file_names = sorted(file_names) # sort file names alphabetically
 for item in file_names:
 	new_item = item.replace(".JPG", ".jpg") # in case caps are used in extension
 	new_item = item.replace(".jpg", "") # remove the extension
