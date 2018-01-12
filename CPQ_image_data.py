@@ -3,7 +3,7 @@ import os, string
 school = raw_input("School abbreviation? ")
 season = str(raw_input('Season (e.g., "2017 Fall")? '))
 date = raw_input("Shoot date? ")
-num_img = int(raw_input("How many images of each child?"))
+num_img = int(raw_input("How many images of each child? "))
 
 file_to_write = "/Users/eddieatkinson/Desktop/%s/%s.csv" % (season, school)
 
@@ -20,7 +20,7 @@ for item in file_names:
 	new_item = item.replace(".JPG", ".jpg") # in case caps are used in extension
 	new_item = item.replace(".jpg", "") # remove the extension
 	newer_item = new_item.replace(" ", ",", 1) # remove first space (class prefix)
-	newest_item = new_item.rstrip("-0123456789") # remove numbers and dash from end
+	newest_item = newer_item.rstrip("-0123456789") # remove numbers and dash from end
 	new_file_names.append(newest_item)
 for j in range (0, len(new_file_names)):
 	just_first_names.append(new_file_names[j].split(',', 1)[-1])
